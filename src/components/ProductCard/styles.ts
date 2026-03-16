@@ -9,12 +9,8 @@ export const styles = StyleSheet.create({
     maxHeight: 209,
     paddingHorizontal: 12,
     paddingVertical: 12,
-    borderBlockColor: colors.secondary,
+    backgroundColor: colors.light,
     borderRadius: 20,
-    shadowColor: colors.dark,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
     elevation: 5,
   },
   imageContainer: {
