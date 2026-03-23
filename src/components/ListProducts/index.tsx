@@ -1,18 +1,19 @@
-import { View } from "react-native";
+import {View, ScrollView} from "react-native";
 import ProductCard from "../ProductCard";
-import { styles } from "./styles";
+import {styles} from "./styles";
 
 const ListProducts = () => {
-  return (
-    <View style={styles.listContainer}>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-    </View>
-  );
+    return (
+        <View style={styles.listContainer}>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+            <ProductCard/>
+        </View>
+
+    );
 };
 
 export default ListProducts;
