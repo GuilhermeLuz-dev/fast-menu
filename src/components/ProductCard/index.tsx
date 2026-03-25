@@ -24,7 +24,7 @@ const ProductCard = () => {
           <FontAwesome name="star" size={15} color="gold" />
           <Text>4.5</Text>
         </View>
-        <TouchableOpacity onPress={() => router.push("/(tabs)/Cart/cart")}>
+        <TouchableOpacity onPress={() => router.push("/(tabs)/Cart")}>
           <Ionicons
             name="bag-handle-outline"
             size={25}

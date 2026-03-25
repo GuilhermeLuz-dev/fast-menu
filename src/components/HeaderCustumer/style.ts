@@ -1,0 +1,23 @@
+import { colors } from "@/src/styles/global";
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: colors.inputBackground,
+    height: 70,
+    paddingHorizontal: 20,
+    marginTop: 20,
+  },
+  iconButton: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 20,
+  },
+});
+
+export default styles;
