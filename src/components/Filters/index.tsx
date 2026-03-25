@@ -7,7 +7,7 @@ const Filter = () => {
     <ScrollView
       style={style.filterContainer}
       horizontal
-      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
     >
       <View style={style.filter}>
         <Text style={style.filterText}>Todos</Text>
