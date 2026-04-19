@@ -90,7 +90,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   };
 
   const cartItemsCount = useMemo(
-    () => cartItems.reduce((accumulator, item) => accumulator + item.quantity, 0),
+    () =>
+      cartItems.reduce((accumulator, item) => accumulator + item.quantity, 0),
     [cartItems],
   );
 
@@ -128,4 +129,3 @@ export const useCart = () => {
 };
 
 export type { AddToCartPayload, CartItem };
-
