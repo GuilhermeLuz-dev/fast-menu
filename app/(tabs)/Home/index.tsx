@@ -1,7 +1,7 @@
+import SearchBar from "@/src/components/SearchBar";
 import { filterOptions, products } from "@/src/data/products";
 import { useMemo, useState } from "react";
-import SearchBar from "@/src/components/SearchBar";
-import { ScrollView, View } from "react-native";
+import { View } from "react-native";
 
 import Filters from "@/src/components/Filters";
 import ListProducts from "@/src/components/ListProducts";
@@ -26,7 +26,7 @@ export default function Index() {
   }, [search, selectedFilter]);
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+    <View style={{ flex: 1 }}>
       <View style={global.container}>
         <SearchBar value={search} onChangeText={setSearch} />
       </View>
@@ -35,9 +35,9 @@ export default function Index() {
         selectedOption={selectedFilter}
         onSelectOption={setSelectedFilter}
       />
-      <View style={global.container}>
+      <View style={[global.container, { flex: 1 }]}>
         <ListProducts products={filteredProducts} />
       </View>
-    </ScrollView>
+    </View>
   );
 }

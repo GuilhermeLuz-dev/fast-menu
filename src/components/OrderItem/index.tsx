@@ -1,5 +1,5 @@
-import { router } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import hamburguer from "../../../assets/images/hamburguer.png";
 import styles from "./style";
@@ -27,7 +27,7 @@ const statuses = [
 const OrderItem = ({
   title = "Cheeseburger",
   subtitle = "Wendy's Burger",
-  status = "received",
+  status = "ready",
 }: OrderItemProps) => {
   const activeStep = statusIndex[status];
 
@@ -57,7 +57,9 @@ const OrderItem = ({
                 <View
                   style={[
                     styles.iconCircle,
-                    isCompleted ? styles.iconCircleActive : styles.iconCircleInactive,
+                    isCompleted
+                      ? styles.iconCircleActive
+                      : styles.iconCircleInactive,
                   ]}
                 >
                   <MaterialIcons
@@ -80,7 +82,9 @@ const OrderItem = ({
               <Text
                 style={[
                   styles.statusLabel,
-                  index === 0 ? styles.statusLabelActive : styles.statusLabelMuted,
+                  index === 0
+                    ? styles.statusLabelActive
+                    : styles.statusLabelMuted,
                 ]}
               >
                 {label}

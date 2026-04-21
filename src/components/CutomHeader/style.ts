@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     height: 56,
     paddingHorizontal: 20,
-    marginTop: 6,
+    paddingTop: 30,
+    marginTop: 10,
   },
   iconButton: {
     width: 40,

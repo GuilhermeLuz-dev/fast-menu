@@ -49,6 +49,7 @@ const Product = ({ id }: Props) => {
         </View>
 
         <Text style={styles.descriptionContainer}>{product?.subtitle}</Text>
+        <Text style={styles.descriptionContainer}>{product?.description}</Text>
 
         <View style={styles.quantityContainer}>
           <Quantity
@@ -60,7 +61,7 @@ const Product = ({ id }: Props) => {
 
         <View style={styles.actionsContainer}>
           <View style={styles.priceContainer}>
-            <Text style={styles.price}>{product?.price}</Text>
+            <Text style={styles.price}>R$ {product?.price}</Text>
           </View>
 
           <TouchableOpacity

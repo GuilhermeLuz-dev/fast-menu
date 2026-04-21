@@ -42,7 +42,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </View>
         <View style={styles.description}>
           <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.subtitle}>{product.subtitle}</Text>
+          <Text style={styles.subtitle}>
+            {product.subtitle.length > 15
+              ? `${product.subtitle.substring(0, 15)}...`
+              : product.subtitle}
+          </Text>
         </View>
       </TouchableOpacity>
       <View style={styles.iconsContainer}>

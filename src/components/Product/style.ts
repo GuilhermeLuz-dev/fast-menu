@@ -10,8 +10,9 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   image: {
-    width: 355,
-    height: 355,
+    width: "100%",
+    height: 280,
+    objectFit: "contain",
   },
   infoContainer: {
     paddingHorizontal: 20,

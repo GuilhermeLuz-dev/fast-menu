@@ -21,14 +21,6 @@ const CustomHeader = ({ search }: PropsHeader) => {
           >
             <Ionicons name="arrow-back" size={24} color={colors.secondary} />
           </TouchableOpacity>
-          <View style={{ flex: 1 }} />
-          {search && (
-            <Ionicons
-              name="search-outline"
-              size={24}
-              color={colors.secondary}
-            />
-          )}
         </View>
       </SafeAreaView>
     </View>

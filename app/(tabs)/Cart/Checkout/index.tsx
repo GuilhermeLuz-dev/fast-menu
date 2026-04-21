@@ -3,6 +3,7 @@ import PaymentMethod from "@/src/components/PaymentMethod";
 import PrimaryButton from "@/src/components/PrimaryButton";
 import TotalPrice from "@/src/components/TotalPrice";
 import { useCart } from "@/src/context/CartContext";
+import { useOrders } from "@/src/context/OrdersContext";
 import { formatCurrency } from "@/src/utils";
 import { global } from "@/src/styles/global";
 import { router } from "expo-router";
@@ -10,14 +11,19 @@ import { useMemo, useState } from "react";
 import { Text, View } from "react-native";
 
 export default function Checkout() {
-  const { cartItemsCount, cartTotal, clearCart } = useCart();
+  const { cartItemsCount, cartTotal, clearCart, cartItems } = useCart();
+  const { createOrder } = useOrders();
   const [selectedPayment, setSelectedPayment] = useState<"pix" | "dinheiro">("pix");
 
   const serviceFee = useMemo(() => (cartItemsCount > 0 ? 2 : 0), [cartItemsCount]);
   const finalTotal = cartTotal + serviceFee;
 
   const handlePayNow = () => {
+    // Criar pedido com os itens do carrinho
+    createOrder({ items: cartItems });
+    // Limpar carrinho
     clearCart();
+    // Navegar para Orders
     router.push("/(tabs)/Orders");
   };
 
