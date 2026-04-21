@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imageContainer: {
+    width: "100%",
     alignItems: "center",
     marginBottom: 18,
   },
