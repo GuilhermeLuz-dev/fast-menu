@@ -13,13 +13,13 @@ type OrderItem = {
 };
 
 type CreateOrderPayload = {
-  items: {
+  items: Array<{
     id: string;
     title: string;
     subtitle: string;
     price: number;
     quantity: number;
-  }[];
+  }>;
 };
 
 type OrdersContextData = {
@@ -28,6 +28,7 @@ type OrdersContextData = {
   createOrder: (payload: CreateOrderPayload) => void;
   updateOrderStatus: (orderId: string, status: OrderStatus) => void;
   getOrdersByStatus: (status: OrderStatus) => OrderItem[];
+  clearOrders: () => void;
 };
 
 const OrdersContext = createContext<OrdersContextData | null>(null);
@@ -56,13 +57,17 @@ export const OrdersProvider = ({ children }: OrdersProviderProps) => {
   const updateOrderStatus = (orderId: string, status: OrderStatus) => {
     setOrders((current) =>
       current.map((order) =>
-        order.id === orderId ? { ...order, status } : order,
-      ),
+        order.id === orderId ? { ...order, status } : order
+      )
     );
   };
 
   const getOrdersByStatus = (status: OrderStatus) => {
     return orders.filter((order) => order.status === status);
+  };
+
+  const clearOrders = () => {
+    setOrders([]);
   };
 
   const ordersCount = orders.length;
@@ -73,11 +78,10 @@ export const OrdersProvider = ({ children }: OrdersProviderProps) => {
     createOrder,
     updateOrderStatus,
     getOrdersByStatus,
+    clearOrders,
   };
 
-  return (
-    <OrdersContext.Provider value={value}>{children}</OrdersContext.Provider>
-  );
+  return <OrdersContext.Provider value={value}>{children}</OrdersContext.Provider>;
 };
 
 export const useOrders = () => {

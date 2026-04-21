@@ -1,4 +1,6 @@
 import Input from "@/src/components/Input";
+import { useCart } from "@/src/context/CartContext";
+import { useOrders } from "@/src/context/OrdersContext";
 import { useUser } from "@/src/context/UserContext";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -9,9 +11,15 @@ import styles from "./styles";
 
 const UserDatas = () => {
   const { userData, clearUserData } = useUser();
+  const { clearCart } = useCart();
+  const { clearOrders } = useOrders();
 
   const handleLogout = () => {
+    // Limpar todos os dados
     clearUserData();
+    clearCart();
+    clearOrders();
+
     router.replace("/(tabs)/Home");
   };
 
@@ -32,23 +40,31 @@ const UserDatas = () => {
           <Text style={styles.title}>Perfil</Text>
         </View>
         <View style={styles.formContainer}>
-          <Text style={{ textAlign: 'center', color: '#666', fontSize: 16, marginTop: 20, marginBottom: 30 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              color: "#666",
+              fontSize: 16,
+              marginTop: 20,
+              marginBottom: 30,
+            }}
+          >
             Nenhum dado de usuário encontrado.
           </Text>
-          
-          <TouchableOpacity 
+
+          <TouchableOpacity
             style={{
-              backgroundColor: '#FFF193',
+              backgroundColor: "#FFF193",
               paddingVertical: 15,
               paddingHorizontal: 24,
               borderRadius: 8,
-              alignItems: 'center',
+              alignItems: "center",
               borderWidth: 2,
-              borderColor: '#EF2A39'
-            }} 
+              borderColor: "#EF2A39",
+            }}
             onPress={handleGoToRegister}
           >
-            <Text style={{ color: '#EF2A39', fontSize: 16, fontWeight: '600' }}>
+            <Text style={{ color: "#EF2A39", fontSize: 16, fontWeight: "600" }}>
               Cadastrar Dados
             </Text>
           </TouchableOpacity>
@@ -82,21 +98,25 @@ const UserDatas = () => {
             value={userData.email}
             keyboardType="email-address"
           />
-          <Input placeholder="Mesa" value={userData.table} keyboardType="numeric" />
+          <Input
+            placeholder="Mesa"
+            value={userData.table}
+            keyboardType="numeric"
+          />
         </View>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={{
-            backgroundColor: '#EF2A39',
+            backgroundColor: "#EF2A39",
             paddingVertical: 12,
             paddingHorizontal: 24,
             borderRadius: 8,
             marginTop: 20,
-            alignItems: 'center'
-          }} 
+            alignItems: "center",
+          }}
           onPress={handleLogout}
         >
-          <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+          <Text style={{ color: "white", fontSize: 16, fontWeight: "600" }}>
             Sair da Conta
           </Text>
         </TouchableOpacity>
