@@ -19,7 +19,8 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    width: 100,
+    width: "100%",
+    objectFit: "contain",
     height: 100,
   },
   description: {
