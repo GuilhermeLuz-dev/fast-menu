@@ -1,6 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import hamburguer from "../../../assets/images/hamburguer.png";
 import styles from "./style";
 
@@ -33,17 +32,13 @@ const OrderItem = ({
 
   return (
     <View style={styles.itemContainer}>
-      <TouchableOpacity
-        style={styles.imageContainer}
-        onPress={() => router.push("/(tabs)/Home/ProductPage")}
-        activeOpacity={0.8}
-      >
+      <View style={styles.imageContainer}>
         <View>
           <Image style={styles.cartImage} source={hamburguer} />
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.description}>{subtitle}</Text>
         </View>
-      </TouchableOpacity>
+      </View>
 
       <View style={styles.timelineContainer}>
         {statuses.map((label, index) => {
