@@ -16,6 +16,7 @@ interface ButtonProps {
   buttonStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   onPress?: () => void;
+  disabled?: boolean;
 }
 
 const PrimaryButton = ({
@@ -24,8 +25,13 @@ const PrimaryButton = ({
   buttonStyle,
   textStyle,
   onPress,
+  disabled = false,
 }: ButtonProps) => {
   const handlePress = () => {
+    if (disabled) {
+      return;
+    }
+
     if (onPress) {
       onPress();
       return;
@@ -37,9 +43,23 @@ const PrimaryButton = ({
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} activeOpacity={0.8}>
-      <View style={[styles.button, buttonStyle]}>
-        <Text style={[styles.buttonText, textStyle]}>{title}</Text>
+    <TouchableOpacity
+      onPress={handlePress}
+      activeOpacity={disabled ? 1 : 0.8}
+      disabled={disabled}
+    >
+      <View
+        style={[styles.button, buttonStyle, disabled && styles.buttonDisabled]}
+      >
+        <Text
+          style={[
+            styles.buttonText,
+            textStyle,
+            disabled && styles.buttonTextDisabled,
+          ]}
+        >
+          {title}
+        </Text>
       </View>
     </TouchableOpacity>
   );

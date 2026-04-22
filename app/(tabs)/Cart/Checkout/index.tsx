@@ -18,7 +18,7 @@ export default function Checkout() {
   const [selectedPayment, setSelectedPayment] = useState<"pix" | "dinheiro">(
     "pix",
   );
-
+  const canPay = cartItemsCount > 0;
   const serviceFee = useMemo(
     () => (cartItemsCount > 0 ? 2 : 0),
     [cartItemsCount],
@@ -77,7 +77,11 @@ export default function Checkout() {
           }}
         >
           <TotalPrice total={finalTotal} />
-          <PrimaryButton title="Pagar agora" onPress={handlePayNow} />
+          <PrimaryButton
+            title="Pagar agora"
+            onPress={handlePayNow}
+            disabled={!canPay}
+          />
         </View>
       </View>
     </View>

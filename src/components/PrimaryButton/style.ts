@@ -21,4 +21,11 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
   },
+  buttonDisabled: {
+    backgroundColor: "#a8a8a8",
+    shadowOpacity: 0,
+  },
+  buttonTextDisabled: {
+    color: "#f0f0f0",
+  },
 });

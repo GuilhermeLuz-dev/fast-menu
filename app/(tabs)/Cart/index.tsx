@@ -3,8 +3,8 @@ import CustomHeader from "@/src/components/CutomHeader";
 import PrimaryButton from "@/src/components/PrimaryButton";
 import TotalPrice from "@/src/components/TotalPrice";
 import { useCart } from "@/src/context/CartContext";
-import styles from "./styles";
 import { ScrollView, Text, View } from "react-native";
+import styles from "./styles";
 
 export default function CartScreen() {
   const {
@@ -15,6 +15,7 @@ export default function CartScreen() {
     decrementItem,
     removeItem,
   } = useCart();
+  const hasItems = cartItems.length > 0;
 
   return (
     <View style={styles.container}>
@@ -54,6 +55,7 @@ export default function CartScreen() {
             path="/(tabs)/Cart/Checkout"
             buttonStyle={styles.checkoutButton}
             textStyle={styles.checkoutButtonText}
+            disabled={!hasItems}
           />
         </View>
       </View>

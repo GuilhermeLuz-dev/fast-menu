@@ -43,6 +43,12 @@ const styles = StyleSheet.create({
   inputsWrapper: {
     width: "100%",
   },
+  errorText: {
+    color: "#EF2A39",
+    marginTop: 6,
+    marginBottom: 10,
+    fontSize: 13,
+  },
   button: {
     backgroundColor: colors.primary,
     paddingVertical: 15,
